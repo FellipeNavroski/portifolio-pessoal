@@ -1,0 +1,38 @@
+@keyframes slideFromLeft{
+    from{
+        transform: translateX(-300px);
+        opacity: 0;
+        filter: blur(3px) grayscale(100);
+    }
+    to{
+        transform:translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes slideFromRight{
+    from{
+        transform: translateX(300px);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes blur-and-opacity{
+    from{
+        opacity: 0;
+        filter: blur(5px);
+    }
+    to{
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
+
+
+.hidden{
+    overflow: hidden;
+    opacity: 0;
+    animation: blur-and-opacity 0.1s;
+}
