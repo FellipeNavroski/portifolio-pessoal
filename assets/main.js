@@ -31,16 +31,22 @@ const redes = document.querySelector(".redes-sociais")
 
 let arguments = [fotoEsq,fotoDir,descEsq,descDir, minhaFoto, descMe, cards, forms, redes]
 
-const observer = new IntersectionObserver(function(entries, observer){
-    entries.forEach(entry => {
-        // se entry está na interseção, então remova a classe hidden, se não, adicione a classe.
-        entry.isIntersecting ? entry.target.classList.remove("hidden") : entry.target.classList.add('hidden')
-    })
+document.addEventListener("load",function(){ 
+    if (window.matchMedia("(max-width: 768px)").matches) {
+        const observer = new IntersectionObserver(function(entries, observer){
+            entries.forEach(entry => {
+                // se entry está na interseção, então remova a classe hidden, se não, adicione a classe.
+                entry.isIntersecting ? entry.target.classList.remove("hidden") : entry.target.classList.add('hidden')
+            })
+        })
+        arguments.forEach(argument => {
+            observer.observe(argument)
+        })        
+    }
 })
 
-arguments.forEach(argument => {
-    observer.observe(argument)
-})
+
+
 
 // Função do botão de retorno ao topo
 
